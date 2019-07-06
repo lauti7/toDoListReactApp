@@ -7,7 +7,8 @@ class EditInput extends Component {
   }
 
  state = {
-   newToDo: ''
+   newToDo: '',
+   toggle: false
  };
 
   newToDoText = event => {
@@ -15,12 +16,23 @@ class EditInput extends Component {
     this.setState({ newToDo });
   };
 
+  showEdit = () => {this.setState({toggle:true})}
+
 
   render(){
     return (
+
       <div>
-        <input type="text" value={this.state.newToDo} onChange={this.newToDoText} />
-        <input type="button" value="edit" onClick={ () => this.props.editTask(this.state.newToDo, this.props.index)}/>
+        <button className="btn" onClick={this.showEdit} >Edit</button>
+        {
+          (this.state.toggle) ?
+            <div>
+              <input type="text" value={this.state.newToDo} onChange={this.newToDoText} />
+              <input className="btn" type="button" value="edit" onClick={ () => this.props.editTask(this.state.newToDo, this.props.index)}/>
+            </div>
+          :
+          ''
+        }
       </div>
     );
   }

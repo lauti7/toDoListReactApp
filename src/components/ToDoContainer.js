@@ -5,7 +5,6 @@ class ToDoContainer extends Component {
   state = {
     toDo: '',
     allTasks: [],
-    toggle: false
   }
 
   toDoText = event => {
@@ -26,10 +25,6 @@ class ToDoContainer extends Component {
     this.setState({allTasks})
   }
 
-  showEdit = () => {
-    this.setState({toggle:true});
-  }
-
   editToDoList = (string, index) => {
     const allTasks = [...this.state.allTasks];
     allTasks[index] = string;
@@ -47,7 +42,7 @@ class ToDoContainer extends Component {
           <button className="btn" onClick={this.createTask}> toDo </button>
         </div>
         <br/>
-        <ToDoList toDoList={this.state.allTasks} checkTask={this.checkTask} showEdit={this.showEdit} editTask={this.editToDoList} toggle={this.state.toggle}/>
+        <ToDoList toDoList={this.state.allTasks} checkTask={this.checkTask}  editTask={this.editToDoList} toggle={this.state.toggle}/>
       </div>
     )
   }

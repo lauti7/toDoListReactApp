@@ -11,10 +11,8 @@ const ToDoList = ({toDoList, checkTask, showEdit, editTask, toggle}) => {
               <li key={toDo} id={index}>
                 {toDo}
                 <span> <input type="submit" value="Check" onClick={checkTask}/> </span>
-                <span> <input type="submit" value="Edit task" onClick={showEdit} /> </span>
-                { (toggle) ? <EditInput editTask={editTask} toDoList={toDoList} oldToDo={toDo} index={index} /> : ''}
+                <EditInput editTask={editTask} oldToDo={toDo} index={index} />
               </li>
-
             )
           })
         }
